@@ -28,8 +28,11 @@ public class World implements Serializable {
     private static class WorldHolder {
         private static final World sWorld = new World();
     }
+
     //解决反序列化创建实例的问题，从io流读取对象的时候会调用这个方法，readResolve创建的对象会直接替换io流读取的对象
     private Object readResolve() throws ObjectStreamException {
         return getInstance();
     }
+
+
 }
